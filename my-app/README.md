@@ -1,6 +1,6 @@
 
-## How to Run and Test
-# To Run API:
+# How to Run and Test
+## To Run API:
 Open VS Code and open folder "React-NodeJS-API-Example"
 Open terminal via VSCode, after that run below commands in it
 cd my-api
@@ -10,7 +10,7 @@ Note: the port number in the terminal output
 example: "Server listening on the port::3090" 
 in above example 3090 is the port number on which our API is running
 
-# To Run APP:
+## To Run APP:
 Open Package.json file under my-app folder 
 Look for below line in this file
 ""proxy": "http://localhost:3080""
