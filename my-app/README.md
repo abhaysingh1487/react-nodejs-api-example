@@ -2,6 +2,7 @@
 # How to Run and Test
 ## To Run API:
 Open VS Code and open folder "React-NodeJS-API-Example"
+
 Open terminal via VSCode, after that run below commands in it
 cd my-api
 npm start
@@ -12,10 +13,13 @@ in above example 3090 is the port number on which our API is running
 
 ## To Run APP:
 Open Package.json file under my-app folder 
+
 Look for below line in this file
 ""proxy": "http://localhost:3080""
-If api port we noted when we ran API is different than what is mentioned in above line in Package.json, than mention the right port number.
+
+If api port we noted when we ran API is different than what is mentioned in above line in Package.json, than replace the port number with the right value we noted when we ran my-api.
 For example: the port number we noted our api running was 3090 and in this my-app/Package.json file has 3080 than we replace 3080 with 3090.
+
 Save Package.json file
 
 now run below command to run app in new terminal window
@@ -23,7 +27,10 @@ cd my-app
 npm start
 
 --------------------------------------------------------------------------------------------------------------------
-## Available Scripts
+--------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
+# Available Additional Scripts
 
 In the project directory, you can run:
 
