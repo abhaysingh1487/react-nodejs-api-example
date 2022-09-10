@@ -2,54 +2,58 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Header } from './components/Header'
-import { Users } from './components/Users'
+import { Events } from './components/Events'
 import { DisplayBoard } from './components/DisplayBoard'
-import CreateUser from './components/CreateUser'
-import { getAllUsers, createUser } from './services/UserService'
+import CreateEvent from './components/CreateEvent'
+import { getAllEvents, createEvent } from './services/EventService'
 
 function App() {
 
-  const [user, setUser] = useState({})
-  const [users, setUsers] = useState([])
-  const [numberOfUsers, setNumberOfUsers] = useState(0)
+  const [event, setEvent] = useState({})
+  const [events, setEvents] = useState([])
+  const [numberOfEvents, setNumberOfEvents] = useState(0)
 
 
-  const userCreate = (e) => {
+  const eventCreate = (e) => {
 
-      createUser(user)
+      createEvent(event)
         .then(response => {
           console.log(response);
-          setNumberOfUsers(numberOfUsers+1)
+          setNumberOfEvents(numberOfEvents+1)
       });
   }
 
-  const fetchAllUsers = () => {
-    getAllUsers()
-      .then(users => {
-        console.log(users)
-        setUsers(users);
-        setNumberOfUsers(users.length)
+  const fetchAllEvents = () => {
+    getAllEvents()
+      .then(events => {
+        console.log(events)
+        setEvents(events);
+        setNumberOfEvents(events.length)
       });
   }
 
   useEffect(() => {
-    getAllUsers()
-      .then(users => {
-        console.log(users)
-        setUsers(users);
-        setNumberOfUsers(users.length)
+    getAllEvents()
+      .then(events => {
+        console.log(events)
+        setEvents(events);
+        setNumberOfEvents(events.length)
       });
   }, [])
 
   const onChangeForm = (e) => {
       if (e.target.name === 'firstname') {
-          user.firstName = e.target.value;
+          event.firstName = e.target.value;
       } else if (e.target.name === 'lastname') {
-          user.lastName = e.target.value;
+          event.lastName = e.target.value;
+      } else if (e.target.name === 'eventDescription') {
+          event.eventDescription = e.target.value;
+      } else if (e.target.name === 'partyCount') {
+          event.partyCount = e.target.value;
       } else if (e.target.name === 'email') {
-          user.email = e.target.value;
+          event.email = e.target.value;
       }
-      setUser(user)
+      setEvent(event)
   }
   
     
@@ -59,24 +63,24 @@ function App() {
           <div className="container mrgnbtm">
             <div className="row">
               <div className="col-md-8">
-                  <CreateUser 
-                    user={user}
+                  <CreateEvent 
+                    event={event}
                     onChangeForm={onChangeForm}
-                    createUser={userCreate}
+                    createEvent={eventCreate}
                     >
-                  </CreateUser>
+                  </CreateEvent>
               </div>
               <div className="col-md-4">
                   <DisplayBoard
-                    numberOfUsers={numberOfUsers}
-                    getAllUsers={fetchAllUsers}
+                    numberOfEvents={numberOfEvents}
+                    getAllEvents={fetchAllEvents}
                   >
                   </DisplayBoard>
               </div>
             </div>
           </div>
           <div className="row mrgnbtm">
-            <Users users={users}></Users>
+            <Events events={events}></Events>
           </div>
         </div>
     );

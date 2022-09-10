@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const DisplayBoard = ({numberOfUsers, getAllUsers}) => {
+export const DisplayBoard = ({numberOfEvents, getAllEvents}) => {
 
     const headerStyle = {
 
@@ -13,12 +13,12 @@ export const DisplayBoard = ({numberOfUsers, getAllUsers}) => {
     
     return(
         <div style={{backgroundColor:'green'}} className="display-board">
-            <h4 style={{color: 'white'}}>Users Created</h4>
+            <h4 style={{color: 'white'}}>Events Created</h4>
             <div className="number">
-            {numberOfUsers}
+            {numberOfEvents}
             </div>
             <div className="btn">
-                <button type="button" onClick={(e) => getAllUsers()} className="btn btn-warning">Get all Users</button>
+                <button type="button" onClick={(e) => getAllEvents()} className="btn btn-warning">Get all Events</button>
             </div>
         </div>
     )
